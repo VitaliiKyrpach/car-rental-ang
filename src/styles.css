@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+	font-display: swap;
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 300;
+	src: url("./app/fonts/manrope-v15-latin-300.woff2") format("woff2");
+
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 400;
+	src: url("./app/fonts/manrope-v15-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 500;
+	src: url("./app/fonts/manrope-v15-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 600;
+	src: url("./app/fonts/manrope-v15-latin-600.woff2") format("woff2");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Manrope";
+	font-style: normal;
+	font-weight: 700;
+	src: url("./app/fonts/manrope-v15-latin-700.woff2") format("woff2");
+}
+
+:root {
+	--color-primary-dark: #121417;
+	--color-secondary-dark: rgba(18, 20, 23, 0.5);
+	--color-primary-light: #f7f7fb;
+	--color-secondary-light: #f0f0f0;
+	--color-secondary-darker: #cbcbcb;
+	--color-light: #fff;
+	--color-accent: #3470ff;
+	--color-accent-dark: #0b44cd;
+}
+* {
+	box-sizing: border-box;
+}
+p,
+h1,
+h2,
+h3 {
+	margin: 0;
+}
+ul,
+li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+body {
+	margin: 0;
+	font-family: "manrope", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.25;
+	color: var(--color-primary-dark);
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+
+.container{
+    margin: 0 auto;
+    padding: 0 128px;
+	max-width: 1440px;
+	width: 100%;
+	overflow: hidden;
+}
