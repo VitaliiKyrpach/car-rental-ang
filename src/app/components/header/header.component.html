@@ -1,20 +1,22 @@
 <header class="header">
     <div class="container">
-        <div>
-            <svg-icon-sprite
-            [src]="'sprite.svg#icon-logo'"
-  [width]="'22px'"
-  [classes]="'logo'"
-></svg-icon-sprite>
-            <a routerLink="/">CarRental</a>
+        <div class="header-wrapper">
+            <div class="logo">
+                <svg-icon-sprite
+                [src]="'sprite.svg#icon-logo'"
+                [width]="'30px'"
+                [classes]="'logo'"
+                ></svg-icon-sprite>
+                <a class="logo-text" routerLink="/">CarRental</a>
+            </div>
             <nav>
-                <ul>
-                    <li> <a mat-flat-button  routerLink="catalog">Catalog</a></li>
-                    <li> <a mat-flat-button  routerLink="favorites">Favorites</a></li>
+                <ul class="nav-list">
+                    <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+                    <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="catalog">Catalog</a></li>
+                    <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="favorites">Favorites</a></li>
                 </ul>
             </nav>
         </div>
-        <p>header works!</p>
     </div>
 </header>
 

@@ -1,0 +1,8 @@
+<ul class="card-list">
+    @for(card of data$|async; track card.id){
+        <li class="card-wrapper">
+            <card [card]="card"/>
+        </li>
+
+    }
+</ul>

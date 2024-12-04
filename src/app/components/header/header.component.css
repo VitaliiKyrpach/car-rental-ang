@@ -1,4 +1,54 @@
 .header{
+    display: flex;
+    align-items: center;
     height: 100px;
     background-color: var(--color-primary-light);
+    width: 100%;  
+}
+.logo{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    position: relative;
+}
+.logo-text{
+    font-weight: 500;
+	font-size: 20px;
+	text-decoration: none;
+    color: var(--color-primary-dark);
+    position: relative;
+    top: 2px;
+}
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.nav-list{
+    display: flex;
+    gap: 15px;
+}
+.nav-link {
+    display: block;
+	padding: 14px 36px;
+	color: var(--color-primary-dark);
+	border-radius: 10px;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 18px;
+	transition: background-color 100ms linear;
+}
+::ng-deep .nav-link.mat-mdc-unelevated-button:not(:disabled){
+    background-color: var(--color-secondary-light);
+
+}
+.nav-link:hover {
+	background-color: var(--color-secondary-darker);
+}
+::ng-deep .nav-link.active.mat-mdc-unelevated-button:not(:disabled){
+    background-color: var(--color-accent);
+    color: var(--color-primary-light);
+}
+.nav-link.active:hover {
+	background-color: var(--color-accent-dark);
 }
