@@ -1,0 +1,118 @@
+.card{
+    position: relative;
+}
+.wrapperImg{
+    position: relative;
+	border-radius: 14px;
+	height: 268px;
+	background-image: linear-gradient(
+		rgba(18, 20, 23, 0.5),
+		rgba(18, 20, 23, 0)
+	);
+	overflow: hidden;
+	margin-bottom: 8px;
+}
+.cardImg{
+    position: relative;
+	height: 100%;
+	z-index: -1;
+}
+.heart{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    cursor: pointer;
+    transition: fill .1s linear;
+    color: #fffc;
+
+}
+
+.heart :hover{
+    color: var(--color-secondary-light);
+}
+.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 500;
+	margin-bottom: 8px;
+}
+.titleWrapper {
+	display: flex;
+	align-items: baseline;
+	gap: 3px;
+}
+.brand {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 110px;
+}
+.carModel {
+	display: block;
+	max-width: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.colorAccent {
+	color: var(--color-accent);
+}
+.infoWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.infoList {
+	max-width: 270px;
+	overflow: hidden;
+	white-space: nowrap;
+	list-style-type: none;
+	display: flex;
+	gap: 10px;
+	font-size: 12px;
+	line-height: 1.5;
+	color: var(--color-secondary-dark);
+}
+.dots {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.infoItem {
+	position: relative;
+	max-width: 100%;
+}
+.infoItem:not(:last-child):after {
+	position: absolute;
+	right: -6px;
+	height: 18px;
+	content: "";
+	border-right: 1px solid var(--color-secondary-dark);
+}
+.moreBtn {
+    margin-top: 28px;
+    width: 100%;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 12px;
+    color: var(--color-light);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 1.42;
+    transition: background-color .1s linear;
+}
+::ng-deep .moreBtn.mat-mdc-unelevated-button:not(:disabled){
+    background-color: var(--color-accent);
+    color: var(--color-primary-light);
+
+}
+
+.moreBtn:hover {
+	background-color: var(--color-accent-dark);
+}

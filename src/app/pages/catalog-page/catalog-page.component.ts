@@ -17,11 +17,15 @@ import { getCards } from '../../store/actions';
 export class CatalogPageComponent implements OnInit {
   public cars$!: Observable<Card[]>
   constructor(private store: Store){}
+  
   ngOnInit(): void {
     this.cars$ = this.store.select(selectCatalog)
     this.cars$.subscribe(data=> {
       if(!data.length){
+        console.log('dispatch')
         this.store.dispatch(getCards())
+      }else{
+        console.log('store')
       }
       console.log(data)})
   }

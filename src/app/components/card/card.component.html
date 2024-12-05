@@ -1,12 +1,38 @@
 <mat-card class="card">
-    <img mat-card-image [src]="card.img" alt="Photo of a Shiba Inu">
+  <div class="wrapperImg">
+    <img class="cardImg" mat-card-image [src]="card.img" alt="Photo of a Shiba Inu">
+  </div>
     <mat-card-content>
-        <p>{{card.make}} - {{card.model}}</p>
-      <p>
-        {{card.description}}
-      </p>
+      
+      <div class="title">
+        <div class="titleWrapper">
+          <p class="brand">{{card.make}}</p>
+          <p class="colorAccent"><span class="carModel">{{card.model}},</span> </p>
+          <p>{{card.year}}</p>
+        </div>
+        <p>{{card.rentalPrice}}</p>
+      </div>
+      <div class="infoWrapper">        
+          <ul class="infoList">
+            <li class="infoItem">{{address[1]}}</li>
+            <li class="infoItem">{{address[2]}}</li>
+            <li class="infoItem">{{card.rentalCompany}}</li>
+            <li class="infoItem dots">Premium</li>
+          </ul>
+          <ul class="infoList">
+            <li class="infoItem">{{card.type}}</li>
+            <li class="infoItem">{{card.make}}</li>
+            <li class="infoItem">{{card.mileage}}</li>
+            <li class="infoItem dots">{{card.accessories[0]}}</li>
+          </ul>  
+      </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Learn more</button>
+      <button class="heart" mat-button><svg-icon-sprite
+        [src]="'sprite.svg#icon-heart'"
+        [width]="'18px'"
+        [classes]="'heartSVG color'"
+        ></svg-icon-sprite></button>
+      <button class="moreBtn" mat-button>Learn more</button>
     </mat-card-actions>
   </mat-card>

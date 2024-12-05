@@ -1,8 +1,12 @@
 <ul class="card-list">
-    @for(card of data$|async; track card.id){
+    @for(card of cars; track card.id){
         <li class="card-wrapper">
             <card [card]="card"/>
         </li>
 
     }
 </ul>
+@if(isVisible && cars.length){
+    <button class="moreBtn" (click)='loadMore()'mat-button>Load more</button>
+}
+

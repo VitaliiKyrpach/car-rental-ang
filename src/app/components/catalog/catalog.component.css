@@ -20,3 +20,21 @@
         margin: 0 auto 100px;
         row-gap: 50px;
 }
+.moreBtn{
+    background-color: initial;
+    border: none;
+    color: var(--color-accent);
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0 auto;
+    outline: none;
+    position: relative;
+    text-decoration: underline;
+    transition: color linear 100ms;
+}
+.moreBtn:hover{
+    color: #0b44cd;
+}
