@@ -33,10 +33,10 @@ export class ModalComponent implements OnInit {
    this.price = this.data.card.rentalPrice.replace(/[^0-9]/g, "")
   }
 
-  public closeModal(){
-    this.dialog.closeAll()
-  }
-  handleClick(event: Event) {
-    event.stopPropagation();
-  }
+  // public closeModal(){
+  //   this.dialog.closeAll()
+  // }
+  // handleClick(event: Event) {
+  //   event.stopPropagation();
+  // }
 }

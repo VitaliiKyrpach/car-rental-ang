@@ -1,5 +1,5 @@
-<div class="backdrop" (click)="closeModal()">
-    <div class="modal" (click)="handleClick($event)">
+<div class="backdrop" mat-dialog-close>
+    <div class="modal" (click)="$event.stopPropagation()">
         <button mat-button mat-dialog-close class="closeBtn" >
             <svg-icon-sprite
             [src]="'sprite.svg#icon-x'"
