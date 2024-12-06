@@ -1,0 +1,92 @@
+<div class="backdrop" (click)="closeModal()">
+    <div class="modal" (click)="handleClick($event)">
+        <button mat-button mat-dialog-close class="closeBtn" >
+            <svg-icon-sprite
+            [src]="'sprite.svg#icon-x'"
+            [width]="'24px'"
+            ></svg-icon-sprite>
+        </button>
+            <div class="modalWrapper">
+                <img class="cardImg" mat-card-image [src]="data.card.img" [alt]="data.card.make">
+                <mat-dialog-content class="modalContent">
+                    <div class="group">
+                    <div class="title">
+                        <p>{{data.card.make}}</p>
+                        <p class="colorAccent">
+                            <span class="carModel">{{data.card.model}},</span>
+                        </p>
+                        <p>{{data.card.year}}</p>
+                    </div>
+                    <div class="infoWrapper">
+                        <ul class="infoList">
+                            <li class="infoItem">{{address[1]}}</li>
+                            <li class="infoItem">{{address[2]}}</li>
+                            <li class="infoItem">Id: {{data.card.id}}</li>
+                            <li class="infoItem">Year: {{data.card.year}}</li>
+                            <li class="infoItem">Type: {{data.card.type}}</li>
+                        </ul>
+                        <ul class="infoList">
+                            <li class="infoItem">
+                                Fuel Consumption: {{data.card.fuelConsumption}}
+                            </li>
+                            <li class="infoItem">
+                                Engine Size: {{data.card.engineSize}}
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="description">{{data.card.description}}</p>
+                    </div>
+                    <div class="group">
+                        <p class="text">
+                            Accessories and functionalities:
+                        </p>
+                        <div class="infoWrapper">
+                            <ul class="infoList">
+                                @for(item of data.card.accessories; track item){
+                                    <li class="infoItem">{{item}}</li>
+                                }
+                            </ul>
+                            <ul class="infoList dots">
+                                @for(item of data.card.functionalities; track item){
+                                    <li class="infoItem">{{item}}</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <p class="text">Rental Conditions: </p>
+                        <ul class="conditionsList">
+                            <li class="condItem">
+                                {{age[0]}}:
+                                <span class="colorAccent bold">
+                                    {{age[1]}}
+                                </span>
+                            </li>
+                            @for(item of conditions; track item){
+                                <li class="condItem">
+                                    {{item}}
+                                </li>
+                            }    
+                            <li class="condItem">
+                                Mileage:
+                                <span class="colorAccent bold">
+                                    {{fixMileage}}
+                                </span>
+                            </li>
+                            <li class="condItem">
+                                Price: 
+                                <span class="colorAccent bold">
+                                    {{price}}$
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="button" type="button">
+                        <a class="tel" href="tel:+380730000000">
+                            Rental car
+                        </a>
+                    </button>
+                </mat-dialog-content>
+        </div>
+    </div>
+</div>

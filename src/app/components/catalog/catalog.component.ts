@@ -20,7 +20,8 @@ export class CatalogComponent implements OnInit {
   public isVisible: boolean = true;
 
   ngOnInit():void {
-    this.data$.subscribe(data=> {this.allCars = data
+    this.data$.subscribe(data=> {
+      this.allCars = data
       this.cars = data.slice(0,12)
     })
 
