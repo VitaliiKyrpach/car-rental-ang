@@ -1,7 +1,7 @@
 <ul class="card-list">
     @for(card of cars; track card.id){
         <li class="card-wrapper">
-            <card [card]="card"/>
+            <card [card]="card" [favorites]="favorites"/>
         </li>
 
     }

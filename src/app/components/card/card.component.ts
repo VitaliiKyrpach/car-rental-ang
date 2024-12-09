@@ -8,11 +8,15 @@ import {
   MatDialogModule,
 } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { NgClass } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { addCard, removeCard } from '../../store/actions';
+import { selectFavorites } from '../../store/selectors';
 
 @Component({
   selector: 'card',
   standalone: true,
-  imports: [MatButtonModule, MatCardModule, IconSpriteModule, MatDialogModule],
+  imports: [MatButtonModule, MatCardModule, IconSpriteModule, MatDialogModule, NgClass],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -20,8 +24,16 @@ export class CardComponent implements OnInit {
   dialog = inject(MatDialog);
 
   @Input() public card!: Card
+  @Input() public favorites!: Card[]
+
+
   public address!: string[]
+  public isAdd:boolean = false
+
+  constructor(private store: Store){}
+
   ngOnInit(): void {
+     this.isAdd = !!this.favorites.find(item => item.id === this.card.id)
     this.address = this.card.address.split(', ')
   }
   public openDialog() {
@@ -30,5 +42,15 @@ export class CardComponent implements OnInit {
         card: this.card
       }
     });
+  }
+  public handleClick(card: Card):void{
+    if(this.isAdd){
+      console.log('dispatch remove')
+      this.store.dispatch(removeCard({id: card.id}))
+    } else{
+      console.log('dispatch add')
+      this.store.dispatch(addCard({card}))
+    }
+    this.isAdd = !this.isAdd
   }
 }

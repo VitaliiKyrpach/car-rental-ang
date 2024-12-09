@@ -10,7 +10,7 @@
       class="cardImg"
       mat-card-image
       [src]="data.card.img"
-      [alt]="data.card.make"
+      [alt]="data.card.make + ' ' + data.card.model"
     />
     <mat-dialog-content class="modalContent">
       <div class="group">
@@ -70,12 +70,12 @@
           <li class="condItem">
             Mileage:
             <span class="colorAccent bold">
-              {{ fixMileage }}
+              {{ data.card.mileage | localString }}
             </span>
           </li>
           <li class="condItem">
             Price:
-            <span class="colorAccent bold"> {{ price }}$ </span>
+            <span class="colorAccent bold"> {{ data.card.rentalPrice | pricePipe }} </span>
           </li>
         </ul>
       </div>

@@ -4,12 +4,13 @@ import {
   MatDialogContent,
   MatDialogTitle,
   MAT_DIALOG_DATA,
-  MatDialog,
   MatDialogActions,
   MatDialogClose,
   MatDialogModule,
 } from '@angular/material/dialog';
 import { IconSpriteModule } from 'ng-svg-icon-sprite';
+import { PricePipe } from '../../pipes/price.pipe';
+import { LocalStringPipe } from '../../pipes/local-string.pipe';
 
 @Component({
   selector: 'app-modal',
@@ -22,6 +23,8 @@ import { IconSpriteModule } from 'ng-svg-icon-sprite';
     MatDialogActions,
     MatDialogClose,
     MatDialogModule,
+    PricePipe,
+    LocalStringPipe
   ],
   templateUrl: './modal.component.html',
   styleUrl: './modal.component.css',
@@ -40,7 +43,5 @@ export class ModalComponent implements OnInit {
     this.conditions = this.data.card.rentalConditions.split('\n');
     this.age = this.conditions[0].split(': ');
     this.conditions.shift();
-    this.fixMileage = this.data.card.mileage.toLocaleString();
-    this.price = this.data.card.rentalPrice.replace(/[^0-9]/g, '');
   }
 }

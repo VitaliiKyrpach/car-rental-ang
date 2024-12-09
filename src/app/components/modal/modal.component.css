@@ -26,14 +26,17 @@
   max-height: 70vh;
   overflow: auto;
 }
-.modalContent::-webkit-scrollbar {
+.modalWrapper::-webkit-scrollbar {
   position: absolute;
   width: 4px;
 }
-.modalContent::-webkit-scrollbar-thumb {
+.modalWrapper::-webkit-scrollbar-thumb {
   background-color: rgba(18, 20, 23, 0.05);
   border-radius: 10px;
 }
+ ::ng-deep .mat-mdc-dialog-content{
+	max-height: 100%;
+ }
 .img {
   height: 248px;
   width: 461px;

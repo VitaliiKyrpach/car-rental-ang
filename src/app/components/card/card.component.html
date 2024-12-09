@@ -1,6 +1,6 @@
 <mat-card class="card">
   <div class="wrapperImg">
-    <img class="cardImg" mat-card-image [src]="card.img" alt="Photo of a Shiba Inu">
+    <img class="cardImg" mat-card-image [src]="card.img" [alt]="'Photo of ' + card.make + ' ' + card.model">
   </div>
     <mat-card-content>
       
@@ -28,10 +28,19 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button class="heart" mat-button><svg-icon-sprite
-        [src]="'sprite.svg#icon-heart'"
-        [width]="'18px'"
-        ></svg-icon-sprite></button>
+      <button class="heart" [ngClass]="isAdd ? 'added' : 'notAdded'"  mat-button (click)="handleClick(card)">
+        @if(isAdd){
+          <svg-icon-sprite
+          [src]="'sprite.svg#icon-heart-active'"
+          [width]="'18px'"
+          ></svg-icon-sprite>
+        }@else{
+          <svg-icon-sprite
+          [src]="'sprite.svg#icon-heart'"
+          [width]="'18px'"
+          ></svg-icon-sprite>
+        }
+      </button>
       <button class="moreBtn" mat-button (click)="openDialog()">Learn more</button>
     </mat-card-actions>
   </mat-card>

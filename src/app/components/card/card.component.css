@@ -23,13 +23,21 @@
     right: 14px;
     z-index: 3;
     cursor: pointer;
-    transition: fill .1s linear;
-    color: #fffc;
+    transition: color .1s linear;
 
 }
-
-.heart :hover{
+.notAdded {
+    color: #fffc;
+}
+.heart.notAdded :hover{
     color: var(--color-secondary-light);
+}
+.added{
+    color: var(--color-accent);
+}
+.heart.added:hover{
+    color: var(--color-accent-dark);
+
 }
 .title {
 	display: flex;

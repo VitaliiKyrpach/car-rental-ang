@@ -24,6 +24,17 @@ export const catalogReducer = createReducer(
         items: cards
     }
   }  ),
-  on(addCard, (state) => state),
-  on(removeCard, (state) => state),
+  on(addCard, (state, {card}) => {
+    return {
+      ...state,
+      favorites: [...state.favorites, card]
+    }
+  }),
+  on(removeCard, (state, {id}) => {
+    const newArr = [...state.favorites].filter(item=> item.id !== id)
+    return {
+      ...state,
+      favorites: newArr
+    }
+  }),
 );

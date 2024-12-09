@@ -4,6 +4,8 @@ import { Card } from '../interface/interface';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { Store } from '@ngrx/store';
+import { selectFavorites } from '../../store/selectors';
 
 @Component({
   selector: 'car-catalog',
@@ -16,16 +18,30 @@ export class CatalogComponent implements OnInit {
   @Input() public data$!: Observable<Card[]>
   private allCars: Card[] = [];
   public cars: Card[] = [];
+  public favorites :Card[] = []
   private count: number = 12;
   public isVisible: boolean = true;
+
+  constructor(private store:Store){}
 
   ngOnInit():void {
     this.data$.subscribe(data=> {
       this.allCars = data
-      this.cars = data.slice(0,12)
+      console.log(this.allCars)
+      if(this.allCars.length > 12){
+        this.cars = data.slice(0,12)
+        this.isVisible = true
+      } else {
+        this.cars = data
+        this.isVisible = false
+      }
     })
+    
+    this.store.select(selectFavorites).subscribe(items => 
+      {
+        this.favorites = items
+     })
 
-    console.log(this.allCars)
   }
 
   public loadMore():void {
