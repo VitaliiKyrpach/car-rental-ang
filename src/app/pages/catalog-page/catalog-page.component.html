@@ -1,6 +1,9 @@
 <section>
     <div class="container">
         <car-filters/>
+        @if(isLoading$ | async){
+            <app-loader/>
+        }
         <car-catalog [data$]="cars$"/>
     </div>
 </section>

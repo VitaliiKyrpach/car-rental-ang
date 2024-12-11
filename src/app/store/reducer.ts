@@ -1,11 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
 import { Card } from '../components/interface/interface';
-import { addCard, getCardsSuccess, removeCard } from './actions';
+import { addCard, addCards, getCards, getCardsSuccess, removeCard } from './actions';
 
 export interface InitState {
 	items: Card[];
 	favorites: Card[];
-	isLoading: Boolean;
+	isLoading: boolean;
 	error: null | string | undefined;
 }
 
@@ -18,12 +18,24 @@ export const initialState: InitState = {
 
 export const catalogReducer = createReducer(
   initialState,
+  on(getCards, state=>{
+    return {
+      ...state,
+      isLoading: true
+    }
+  }), 
   on(getCardsSuccess, (state, {cards}) => {
     return {
-        ...state, 
+        ...state,
+        isLoading: false,
         items: cards
     }
   }  ),
+  on(addCards, (state, {favArr})=>{
+    return {...state, 
+      favorites: favArr
+    }
+  }),
   on(addCard, (state, {card}) => {
     return {
       ...state,

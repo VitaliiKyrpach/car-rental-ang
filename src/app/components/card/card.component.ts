@@ -12,6 +12,7 @@ import { NgClass } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { addCard, removeCard } from '../../store/actions';
 import { selectFavorites } from '../../store/selectors';
+import { CatalogService } from '../../services/service.service';
 
 @Component({
   selector: 'card',
@@ -30,7 +31,7 @@ export class CardComponent implements OnInit {
   public address!: string[]
   public isAdd:boolean = false
 
-  constructor(private store: Store){}
+  constructor(private store: Store, private service: CatalogService){}
 
   ngOnInit(): void {
      this.isAdd = !!this.favorites.find(item => item.id === this.card.id)
@@ -47,9 +48,11 @@ export class CardComponent implements OnInit {
     if(this.isAdd){
       console.log('dispatch remove')
       this.store.dispatch(removeCard({id: card.id}))
+      this.service.setToLS(card)
     } else{
       console.log('dispatch add')
       this.store.dispatch(addCard({card}))
+      this.service.removeFromLS(card)
     }
     this.isAdd = !this.isAdd
   }

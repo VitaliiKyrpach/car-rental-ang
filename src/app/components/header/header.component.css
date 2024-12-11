@@ -10,12 +10,12 @@
     gap: 5px;
     align-items: center;
     position: relative;
+    color: var(--color-primary-dark);
+	text-decoration: none;
 }
 .logo-text{
     font-weight: 500;
 	font-size: 20px;
-	text-decoration: none;
-    color: var(--color-primary-dark);
     position: relative;
     top: 2px;
 }
@@ -51,4 +51,14 @@
 }
 .nav-link.active:hover {
 	background-color: var(--color-accent-dark);
+}
+.nav-link.disabled {
+	padding: 14px 36px;
+	background-color: var(--color-secondary-light);
+	border-radius: 10px;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 18px;
+	color: var(--color-secondary-darker);
+	pointer-events: none;
 }

@@ -1,19 +1,18 @@
 <header class="header">
     <div class="container">
         <div class="header-wrapper">
-            <div class="logo">
-                <svg-icon-sprite
-                [src]="'sprite.svg#icon-logo'"
-                [width]="'30px'"
-                [classes]="'logo'"
-                ></svg-icon-sprite>
-                <a class="logo-text" routerLink="/">CarRental</a>
-            </div>
+ 
+                <a class="logo" routerLink="/"><svg-icon-sprite
+                    [src]="'sprite.svg#icon-logo'"
+                    [width]="'30px'"
+                    [classes]="'logo'"
+                    ></svg-icon-sprite> <span class="logo-text">CarRental</span></a>
+    
             <nav>
                 <ul class="nav-list">
                     <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
                     <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="catalog">Catalog</a></li>
-                    <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="favorites">Favorites</a></li>
+                    <li> <a mat-flat-button class="nav-link" [ngClass]="empty ? 'disabled' : ''" routerLinkActive="active" routerLink="favorites" [disabled]="empty">Favorites</a></li>
                 </ul>
             </nav>
         </div>

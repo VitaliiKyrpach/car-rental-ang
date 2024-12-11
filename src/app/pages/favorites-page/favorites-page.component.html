@@ -2,5 +2,14 @@
     <div class="container">
         <car-filters/>
         <car-catalog [data$]="cars$"/>
+        @if(isEmpty){
+            <p class="text">
+				<span class="bold">Sorry dude!</span> There are no
+				cars added to favorits. Just go back to the 
+				<span class="bold">Catalog page</span> and pick what
+				you like.
+				<br /> <span class="bro">Peace out bro!!</span>
+			</p>
+        }
     </div>
 </section>

@@ -12,7 +12,7 @@ export const getCardsFail = createAction(
     '[Catalog] Get CardsFail',
     props<{error: any}>()
 ) 
-
+export const addCards = createAction('[Catalog] Add Cards', props<{favArr: Card[]}>())
 export const addCard = createAction(
   '[Catalog] Add Card',
   props<{ card: Card }>()
