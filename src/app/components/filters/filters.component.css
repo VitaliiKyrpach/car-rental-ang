@@ -1,0 +1,77 @@
+.filtersWrapper {
+	margin-top: 60px;
+	margin-bottom: 50px;
+	padding: 14px;
+	font-size: 18px;
+	line-height: 1.15;
+	font-weight: 500;
+	color: var(--color-primary-dark);
+}
+.group{
+    display: flex;
+    flex-wrap: wrap;
+}
+.title {
+	position: absolute;
+	top: -20px;
+	left: 0;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.28;
+	color: #8a8a89;
+}
+.mileAge{
+    position: relative;
+}
+.mileAgeWrapper{
+    display: flex;
+    border-radius: 14px;
+    height: 48px;
+    width: 320px;
+    overflow: hidden;
+}
+.mileageFiled {
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 1.12;
+	color: var(--color-primary-dark);
+	background-color: var(--color-primary-light);
+	border: none;
+	outline: none;
+    width: 50%;
+    padding: 14px 18px;
+}
+mat-divider {
+    color: #8a898933;
+}
+mat-divider.mat-divider.mat-divider-vertical{
+    border-right-width: 1px;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.submitBtn {
+    display: block;
+	padding: 14px 36px;
+    width: 136px;
+    height: 48px;
+    color: var(--color-primary-light);
+	border-radius: 10px;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 18px;
+	transition: background-color 100ms linear;
+}
+::ng-deep .submitBtn.mat-mdc-unelevated-button:not(:disabled){
+    background-color: var(--color-accent);
+}
+.submitBtn:hover {
+	background-color: var(--color-accent-dark);
+}
