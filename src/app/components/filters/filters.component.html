@@ -1,27 +1,51 @@
 <div class="filtersWrapper">
     <form class="group" [formGroup]="filterGroup">
-        <div>
-            <p class="title">Car brend</p>
-            <mat-form-field>
-                <mat-label>Choose a car brand</mat-label>
-                <mat-select >
-                    <mat-option value="option1">Option 1</mat-option>
-                    <mat-option value="option2">Option 2</mat-option>
-                    <mat-option value="option3">Option 3</mat-option>
-                </mat-select>
-            </mat-form-field>
+        <div class="field">
+            <p class="title">Car brand</p>
+            <input      
+                        matInput
+                        formControlName="brand"
+						class="input brand"
+						type="text"
+						placeholder="Enter the text"
+						id="brandSearch"
+						data-type="brand"
+						(click)="handleOpen('brand')"
+						(input)="handleQuery()"
+						[value]="filterGroup.controls.brand.value"
+						autoComplete="off"
+					/>
+                    <div class="arrowSvg"
+                    [ngClass]="isOpen.brand ? 'arrowDown' : ''"
+                    >
+                        <svg-icon-sprite
+                        [src]="'sprite.svg#icon-arrow'"
+                        ></svg-icon-sprite>
+                    </div>
         </div>
-        <div>
+        <div class="field" (click)="handleOpen('price')">
             <p class="title">Price/ 1 hour</p>
-            <mat-form-field>
-                <p>To</p>
-                <mat-label>$</mat-label>
-                <mat-select >
-                    <mat-option value="10">10$</mat-option>
-                    <mat-option value="20">20$</mat-option>
-                    <mat-option value="30">30$</mat-option>
-                </mat-select>
-            </mat-form-field>
+            <div
+            class="input price"
+            >
+            {{ 'To ' + filterGroup.controls.price.value + ' $' }}
+            </div>
+            <div class="arrowSvg"
+            [ngClass]="isOpen.price ? 'arrowDown' : ''"
+            >
+                <svg-icon-sprite
+                [src]="'sprite.svg#icon-arrow'"
+                ></svg-icon-sprite>
+            </div>
+            @if(isOpen.price){
+                <div class="filterListWrapper price">
+                    <ul class="filterList" (click)="handlePick($event)">
+                        @for(price of priceArr; track price){
+                            <li class="filterItem">{{price}}</li>
+                        }
+                    </ul>
+                </div>
+            }
         </div>
         <div class="mileAge">
             <p class="title">Car mileage / km</p>

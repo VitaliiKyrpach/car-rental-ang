@@ -31,4 +31,18 @@ export class CatalogService {
       arr.push(card)
       localStorage.setItem('favorites', JSON.stringify(arr)) 
   }
+  public getPrice(): number[] {
+    let priceArr: number[] = [];
+    this.getCars().subscribe((items: Card[])=>{
+      const dataPrice = items.map(({ rentalPrice }) =>
+        Number(rentalPrice.replace(/[^0-9]/g, ""))
+      );
+      const maxPrice = Math.max(...dataPrice);
+      
+      for (let i = 10; i <= maxPrice; i += 10) {
+        priceArr.push(i);
+      }
+    })
+    return priceArr;
+  }
 }
