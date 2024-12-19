@@ -1,3 +1,5 @@
+import { FormControl } from "@angular/forms";
+
 export interface Card {
 	id: number;
 	year: number;
@@ -16,3 +18,24 @@ export interface Card {
 	rentalConditions: string;
 	mileage: number;
 }
+
+export interface Filters{
+	brand: string;
+	price: string;
+	from: string;
+	to: string
+  }
+  
+  export interface InitState {
+	items: Card[];
+	favorites: Card[];
+	filters: Filters;
+	isLoading: boolean;
+	error: null | string | undefined;
+  }
+export interface FilterGroup {
+	brand: FormControl<string>;
+	price: FormControl<string>;
+	from: FormControl<string>;
+	to: FormControl<string>;
+  }

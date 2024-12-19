@@ -6,6 +6,11 @@
 
     }
 </ul>
+@if(!cars.length){
+    <p class="text"><span class="bold">Sorry dude!</span> There are no cars found with such parameters.
+         <span class="bold">Slow down</span> your appetites and try changing your filter parameters.<br />
+    <span class="bro">Peace out bro!!</span></p>
+}
 @if(isVisible && cars.length){
     <button class="moreBtn" (click)='loadMore()'mat-button>Load more</button>
 }

@@ -1,6 +1,6 @@
 <div class="filtersWrapper">
-    <form class="group" [formGroup]="filterGroup">
-        <div class="field">
+    <form class="group" [formGroup]="filterGroup" (ngSubmit)="onSubmit()">
+        <div class="field" (click)="handleOpen('brand')">
             <p class="title">Car brand</p>
             <input      
                         matInput
@@ -10,7 +10,7 @@
 						placeholder="Enter the text"
 						id="brandSearch"
 						data-type="brand"
-						(click)="handleOpen('brand')"
+						
 						(input)="handleQuery()"
 						[value]="filterGroup.controls.brand.value"
 						autoComplete="off"
@@ -22,6 +22,15 @@
                         [src]="'sprite.svg#icon-arrow'"
                         ></svg-icon-sprite>
                     </div>
+                    @if(isOpen.brand){
+                        <div class="filterListWrapper brand">
+                            <ul class="filterList" (click)="handlePick($event, 'brand')">
+                                @for(brand of brandsArr;let idx = $index; track idx){
+                                    <li class="filterItem">{{brand}}</li>
+                                }
+                            </ul>
+                        </div>
+                    }
         </div>
         <div class="field" (click)="handleOpen('price')">
             <p class="title">Price/ 1 hour</p>
@@ -39,7 +48,7 @@
             </div>
             @if(isOpen.price){
                 <div class="filterListWrapper price">
-                    <ul class="filterList" (click)="handlePick($event)">
+                    <ul class="filterList" (click)="handlePick($event, 'price')">
                         @for(price of priceArr; track price){
                             <li class="filterItem">{{price}}</li>
                         }

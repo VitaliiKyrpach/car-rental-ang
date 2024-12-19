@@ -28,6 +28,9 @@
 	outline: none;
 	cursor: pointer;
 }
+.brand{
+	width: 224px;
+}
 .price{
 	width: 125px;
 }

@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CardComponent } from '../card/card.component';
-import { Card } from '../interface/interface';
+import { Card, Filters } from '../interface/interface';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { Store } from '@ngrx/store';
-import { selectFavorites } from '../../store/selectors';
+import { selectFavorites, selectFilters } from '../../store/selectors';
+import { CatalogService } from '../../services/service.service';
 
 @Component({
   selector: 'car-catalog',
@@ -18,16 +19,28 @@ export class CatalogComponent implements OnInit {
   @Input() public data$!: Observable<Card[]>
   private allCars: Card[] = [];
   public cars: Card[] = [];
+  public filteredCars: Card[] = [];
   public favorites :Card[] = []
   private count: number = 12;
   public isVisible: boolean = true;
+  private filters$!: Observable<Filters>
 
-  constructor(private store:Store){}
+  constructor(private store:Store, private service: CatalogService){}
 
   ngOnInit():void {
+    this.filters$ = this.store.select(selectFilters)
+    this.filters$.subscribe(items=>{ 
+      this.filteredCars = this.service.filterCards(this.allCars, items)
+      if(this.filteredCars.length > 12){
+        this.cars = this.filteredCars.slice(0,12)
+        this.isVisible = true
+      } else {
+        this.cars = this.filteredCars
+        this.isVisible = false
+      }
+    })
     this.data$.subscribe(data=> {
       this.allCars = data
-      console.log(this.allCars)
       if(this.allCars.length > 12){
         this.cars = data.slice(0,12)
         this.isVisible = true

@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Card } from '../components/interface/interface';
+import { Card, Filters } from '../components/interface/interface';
 
 export const getCards = createAction(
     '[Catalog] Get Cards'
@@ -21,3 +21,4 @@ export const removeCard = createAction(
     '[Catalog] Remove Card', 
     props<{id: number}>()
 )
+export const setFilters = createAction('[Catalog] Set Filters', props<{filters: Filters}>() )

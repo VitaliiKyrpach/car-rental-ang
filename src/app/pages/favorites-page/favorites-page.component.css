@@ -1,6 +1,8 @@
+
 .text {
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 100px;
 	padding-left: 30px;
 	padding-right: 30px;
 	font-family: "manrope", sans-serif;

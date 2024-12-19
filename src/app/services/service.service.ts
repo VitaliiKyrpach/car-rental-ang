@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Card } from '../components/interface/interface';
+import { Card, Filters } from '../components/interface/interface';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,14 @@ export class CatalogService {
       const newArr = arr.filter((item: Card)=> item.id !== card.id)
       localStorage.setItem('favorites', JSON.stringify(newArr)) 
   }
+
   public removeFromLS(card: Card): void{
     const isExist = localStorage.getItem('favorites');
       const arr = isExist ? JSON.parse(isExist) : [];
       arr.push(card)
       localStorage.setItem('favorites', JSON.stringify(arr)) 
   }
+
   public getPrice(): number[] {
     let priceArr: number[] = [];
     this.getCars().subscribe((items: Card[])=>{
@@ -45,4 +47,30 @@ export class CatalogService {
     })
     return priceArr;
   }
+
+  public filterCards = (
+    cards: Card[],
+    filters: Filters
+  ): Card[] => {
+    const { brand, price, from, to } = filters;
+    console.log(filters)
+    return cards
+      .filter((card) =>
+        brand !== ""
+          ? card.make.toLowerCase().includes(brand.toLowerCase())
+          : card
+      )
+      .filter((card) => {
+        const formattedPrice = Number(
+          card.rentalPrice.slice(1, card.rentalPrice.length)
+        );
+        return price ? formattedPrice <= Number(price) : card;
+      })
+      .filter((card) =>
+        Number(from) ? card.mileage >= Number(from) : card
+      )
+      .filter((card) =>
+        Number(to) ? card.mileage <= Number(to) : card
+      );
+  };
 }
