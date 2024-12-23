@@ -5,7 +5,6 @@
   position: relative;
   background-color: var(--color-light);
   padding: 40px 20px;
-  width: 90%;
   max-height: 85%;
   overflow: hidden;
 }
@@ -55,9 +54,6 @@
 
 .carModel {
   display: block;
-  /* max-width: 100px; */
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
   white-space: nowrap;
 }
 .colorAccent {
@@ -87,7 +83,7 @@
 }
 .infoList::-webkit-scrollbar-thumb {
   background-color: var(--color-secondary-darker);
-  border-radius: 12px; /* roundness of the scroll thumb */
+  border-radius: 12px;
 }
 .infoItem {
   position: relative;
@@ -109,11 +105,7 @@
   line-height: 1.5;
   margin-bottom: 8px;
 }
-/* .dots {
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-} */
+
 .conditionsList {
   display: flex;
   flex-wrap: wrap;

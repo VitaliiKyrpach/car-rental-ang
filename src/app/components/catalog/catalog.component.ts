@@ -17,7 +17,7 @@ import { CatalogService } from '../../services/service.service';
 })
 export class CatalogComponent implements OnInit {
   @Input() public data$!: Observable<Card[]>
-  private allCars: Card[] = [];
+  public allCars: Card[] = [];
   public cars: Card[] = [];
   public filteredCars: Card[] = [];
   public favorites :Card[] = []
@@ -30,6 +30,7 @@ export class CatalogComponent implements OnInit {
   ngOnInit():void {
     this.filters$ = this.store.select(selectFilters)
     this.filters$.subscribe(items=>{ 
+      console.log('filters',items)
       this.filteredCars = this.service.filterCards(this.allCars, items)
       if(this.filteredCars.length > 12){
         this.cars = this.filteredCars.slice(0,12)

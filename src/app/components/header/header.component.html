@@ -14,7 +14,14 @@
                     <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="catalog">Catalog</a></li>
                     <li> <a mat-flat-button class="nav-link" [ngClass]="empty ? 'disabled' : ''" routerLinkActive="active" routerLink="favorites" [disabled]="empty">Favorites</a></li>
                 </ul>
+               
             </nav>
+            <app-mobile-menu [isOpen]="isOpen" [empty]="empty" (menuClose)="isOpen = false"/>
+            
+            <button mat-button  class="burger" (click)="isOpen = true"><svg-icon-sprite
+                [src]="'sprite.svg#icon-burger-menu'"
+                [width]="'30px'"
+                ></svg-icon-sprite></button>
         </div>
     </div>
 </header>

@@ -34,7 +34,6 @@ export class FiltersComponent {
   @HostListener('document:click', ['$event'])
     onClick(event: MouseEvent){
       const clickedInside = this.el.nativeElement.contains(event.target);
-      console.log(clickedInside)
       if(!clickedInside){
         this.isOpen.brand = false;
         this.isOpen.price = false

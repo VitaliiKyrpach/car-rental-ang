@@ -1,0 +1,11 @@
+<div class="mobileMenu" [ngClass]="isOpen ? 'open': ''">
+    <button mat-button class="close" (click)="menuClose.emit()"><svg-icon-sprite
+        [src]="'sprite.svg#icon-x'"
+        [width]="'30px'"
+        ></svg-icon-sprite></button>
+        <ul class="navBar">
+            <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="" [routerLinkActiveOptions]="{exact: true}" (click)="menuClose.emit()">Home</a></li>
+            <li> <a mat-flat-button class="nav-link" routerLinkActive="active" routerLink="catalog" (click)="menuClose.emit()">Catalog</a></li>
+            <li> <a mat-flat-button class="nav-link" [ngClass]="empty ? 'disabled' : ''" routerLinkActive="active" routerLink="favorites" [disabled]="empty" (click)="menuClose.emit()">Favorites</a></li>
+        </ul>
+</div>

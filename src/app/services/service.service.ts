@@ -53,7 +53,6 @@ export class CatalogService {
     filters: Filters
   ): Card[] => {
     const { brand, price, from, to } = filters;
-    console.log(filters)
     return cards
       .filter((card) =>
         brand !== ""
